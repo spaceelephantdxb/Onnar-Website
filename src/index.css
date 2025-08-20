@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'WA Flat Brush';
+  src: url('/FlatBrushRegular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "playfair";
+  src: url(/PlayfairDisplay-VariableFont_wght.ttf);
+}
+.font-wa-flat {
+  font-family: 'WA Flat Brush', cursive;
+}
+.inter{
+  font-family: 'Inter', sans-serif;
+}
+.playfair{
+  font-family: 'playfair', serif;
+}
+
+
+.hover:hover{
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  background-color: #46171A;
+  color:#fff;
+  transform: scale(1.03);
+}
+
+.spin{
+  cursor: pointer;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
