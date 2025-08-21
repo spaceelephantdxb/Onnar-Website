@@ -12,7 +12,7 @@ const Navbar = () => {
     >
       {/* Company Logo (only visible on mobile, replaces old toggle position) */}
       <div className="absolute left-3 flex items-center md:hidden">
-        <a href="https://ulu-amir-website.vercel.app"><img 
+        <a href="https://uluamirgroup.com"><img 
           src="./logo.png"
           alt="Company Logo"
           className="w-[80px] h-[60px] object-contain"/></a>
@@ -130,7 +130,7 @@ const Navbar = () => {
             } flex-col md:absolute md:top-full md:left-0 bg-[#46171A] min-w-[160px] md:min-w-[180px] shadow-md z-[2000] rounded-[6px] mt-2 md:mt-0`}
           >
             <a
-              href="https://ulu-amir-website.vercel.app"
+              href="https://uluamirgroup.com"
               className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
             >
               Ulu Amir
@@ -139,7 +139,7 @@ const Navbar = () => {
               href="#"
               className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
             >
-              Venture 2
+              Venture two
             </a>
             <a
               href="#"
