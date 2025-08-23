@@ -139,13 +139,21 @@ const Navbar = () => {
               href="#"
               className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
             >
-              Venture two
+              Lolwa Coffee Coffee
             </a>
             <a
               href="#"
               className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
             >
-              Venture 3
+              Lull Cafe
+
+
+            </a>
+            <a
+              href="#"
+              className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
+            >
+              Luxury Real Estate
             </a>
           </div>
         </div>
