@@ -133,7 +133,7 @@ const Navbar = () => {
               href="https://uluamirgroup.com"
               className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
             >
-              Ulu Amir
+              Ulu Amir Group
             </a>
             <a
               href="#"
@@ -159,19 +159,19 @@ const Navbar = () => {
         </div>
 
         <a
-          href="#"
+          href="#founder"
           className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#F15A24] transition-colors w-full md:w-auto"
         >
           Founders Message
         </a>
         <a
-          href="#"
+          href="#aboutus"
           className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#F15A24] transition-colors w-full md:w-auto"
         >
           About Us
         </a>
         <a
-          href="#"
+          href="#contantus"
           className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#F15A24] transition-colors w-full md:w-auto"
         >
           Contact Us

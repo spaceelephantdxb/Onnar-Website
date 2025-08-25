@@ -6,6 +6,7 @@ import Testimonial from './components/Testimonial'
 import Footer from './components/Footer'
 import MenuItems from './components/MenuItems'
 import DeliveryInfo from './components/DeliveryInfo'
+import FounderSection from './components/FounderSection'
 const App = () => {
   return (
     <div> 
@@ -15,6 +16,7 @@ const App = () => {
       <MenuItems/>
       <DeliveryInfo/>
       <Testimonial/>
+      <FounderSection/>
       <Footer/>
     </div>
   )

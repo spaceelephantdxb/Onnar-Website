@@ -12,9 +12,9 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#46171A] text-[#e6e4d8] py-16 px-5 relative overflow-hidden">
+    <footer  className="bg-[#46171A] text-[#e6e4d8] py-16 px-5 relative overflow-hidden">
       {/* Background animation */}
-      <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(222,198,170,0.05)_0,transparent_70%)] animate-[float_12s_ease-in-out_infinite]"></div>
+      <div id="contantus" className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(222,198,170,0.05)_0,transparent_70%)] animate-[float_12s_ease-in-out_infinite]"></div>
 
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-start relative z-[2]">
 
@@ -63,7 +63,6 @@ const Footer = () => {
             <div className="w-24">
               <img src="/logo.png" alt="Ulu Amir Group Logo" />
             </div>
-            <div className="text-[#e6e4d8] text-sm">Ulu Amir Group</div>
           </div>
           <p className="text-sm text-[#d4d2c5]  leading-relaxed mt-2">
             Craft businesses that reflect excellence, elevate local identity, and resonate with global standards.

@@ -30,7 +30,7 @@ const HeroSection = () => {
       </div>
 
 
-       <div className="w-full bg-[#ECE7DA] flex justify-center px-4 md:px-20 py-12">
+       <div className="w-full bg-[#ECE7DA] flex justify-center px-4 md:px-20 py-12" id="aboutus">
       <div className="max-w-4xl text-center">
         <h2 className="text-5xl text-[#46171A] font-wa-flat font-medium  mb-4">
           Welcome to <span className="text-[#F15A24]">On Nar</span>
