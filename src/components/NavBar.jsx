@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,10 +13,13 @@ const Navbar = () => {
     >
       {/* Company Logo (only visible on mobile, replaces old toggle position) */}
       <div className="absolute left-3 flex items-center md:hidden">
-        <a href="https://uluamirgroup.com"><img 
-          src="./logo.png"
-          alt="Company Logo"
-          className="w-[80px] h-[60px] object-contain"/></a>
+        <a href="https://uluamirgroup.com">
+          <img
+            src="./logo.png"
+            alt="Company Logo"
+            className="w-[80px] h-[60px] object-contain"
+          />
+        </a>
       </div>
 
       {/* Center Spinning Logo (same for all screens) */}
@@ -135,20 +139,19 @@ const Navbar = () => {
             >
               Ulu Amir Group
             </a>
-            <a
-              href="#"
+            <Link
+              to="/lowacoffee"
               className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
             >
-              Lolwa Coffee Coffee
-            </a>
-            <a
-              href="#"
+              Lowa Coffee
+            </Link>
+
+            <Link
+              to="/LullPage"
               className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
             >
               Lull Cafe
-
-
-            </a>
+            </Link>
             <a
               href="#"
               className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"

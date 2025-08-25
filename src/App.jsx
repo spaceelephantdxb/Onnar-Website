@@ -1,23 +1,15 @@
-import React from 'react'
-import Navbar from './components/NavBar'
-import Hero from './components/Hero'
-import Section2 from './components/Section2'
-import Testimonial from './components/Testimonial'
-import Footer from './components/Footer'
-import MenuItems from './components/MenuItems'
-import DeliveryInfo from './components/DeliveryInfo'
-import FounderSection from './components/FounderSection'
+import LowaCoffee from './components/LOWACoffee'
+import LullPage from './components/Lull';
+import HomePage from './HomePage'
+import { Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <div> 
-      <Navbar/>
-      <Hero/>
-      <Section2/>
-      <MenuItems/>
-      <DeliveryInfo/>
-      <Testimonial/>
-      <FounderSection/>
-      <Footer/>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/lowacoffee" element={<LowaCoffee />} />
+        <Route path="/LullPage" element={<LullPage />} />
+      </Routes>
     </div>
   )
 }
