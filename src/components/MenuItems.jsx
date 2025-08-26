@@ -105,12 +105,12 @@ const MenuItems = () => {
         </h2>
 
         {/* Category Buttons */}
-        <div className="flex flex-wrap justify-center w-[90%] gap-2 sm:gap-3 mb-12">
+        <div className="flex flex-wrap justify-center w-full gap-2 sm:gap-3 mb-12">
           {Object.keys(categories).map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1 text-xs sm:px-6 sm:py-2 sm:text-sm rounded-lg font-semibold transition-colors duration-300 ${
+              className={`px-5 py-2 text-s rounded-lg cursor-pointer font-semibold transition-colors duration-300 ${
                 activeCategory === cat
                   ? "bg-[#46171A] text-white"
                   : "bg-[#ede9dc] text-[#46171A] hover:bg-[#F15A24] hover:text-white"
@@ -131,13 +131,13 @@ const MenuItems = () => {
               <div className="bg-[#ede9dc] rounded-3xl pt-10 pb-40 text-center relative overflow-visible shadow-lg w-full">
                 {/* Content */}
                 <div className="mb-8">
-                  <h3 className="font-wa-flat text-[#46171A] tracking-wider text-lg sm:text-2xl font-light">
+                  <h3 className="font-wa-flat text-[#46171A] tracking-wider text-3xl font-light">
                     {item.name}
                   </h3>
-                  <p className="text-[#46171A] text-xs sm:text-sm font-medium mb-6 opacity-90">
+                  {/* <p className="text-[#46171A] text-lg font-medium mb-6 opacity-90">
                     {activeCategory}
-                  </p>
-                  <button className="px-6 py-1 text-xs sm:px-8 sm:py-2 sm:text-sm font-bold rounded-lg transition-colors cursor-pointer duration-300 bg-white text-red-700 hover:bg-[#F15A24] hover:text-white">
+                  </p> */}
+                  <button className="px-6 py-2 mt-4 text-md  font-medium rounded-lg transition-colors cursor-pointer duration-300 bg-white text-red-700 hover:bg-[#F15A24] hover:text-white">
                     Add to Cart
                   </button>
                 </div>
@@ -147,7 +147,7 @@ const MenuItems = () => {
                   <img
                     src={item.img}
                     alt={item.name}
-                    className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-52 sm:w-70 h-48 sm:h-62 object-cover rounded-full shadow-xl z-10"
+                    className="absolute -bottom-15 md:-bottom-24 left-1/2 transform -translate-x-1/2 w-52 sm:w-70 h-48 sm:h-62 object-cover rounded-full shadow-xl z-10"
                   />
                 )}
               </div>

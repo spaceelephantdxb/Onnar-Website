@@ -16,7 +16,7 @@ const LullPage = () => {
       />
 
       {/* Overlay (optional, for better contrast on button/text) */}
-      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute"></div>
 
       {/* Button at bottom center */}
       <div className="absolute bottom-30 md:bottom-2 w-full flex justify-center">
