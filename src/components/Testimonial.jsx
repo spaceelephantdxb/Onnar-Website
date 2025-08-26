@@ -9,45 +9,49 @@ const Testimonial = () => {
     const track = trackRef.current;
     if (!carousel || !track) return;
 
-    // Save the original nodes (these are the initially rendered testimonials)
     const originalNodes = Array.from(carousel.children);
     const originalCount = originalNodes.length;
 
-    // Remove any previously appended clones (safety)
+    // Clear any existing cloned nodes
     while (carousel.children.length > originalCount) {
       carousel.removeChild(carousel.lastChild);
     }
 
-    // Append a clone of the entire set to make seamless loop
+    // Clone nodes for infinite scroll
     originalNodes.forEach((node) => {
       carousel.appendChild(node.cloneNode(true));
     });
 
-    // Layout / animation variables
     let animId = null;
     let lastTimestamp = null;
-    let x = 0; // current translateX in px (negative moves left)
-    // px per millisecond (adjust to taste). Example: 0.05 px/ms => 50 px/s
+    let x = 0;
     const pxPerMs = window.innerWidth < 768 ? 0.07 : 0.04;
 
-    // Use will-change for smoother transforms
     carousel.style.willChange = "transform";
 
-    const resetThreshold = () => carousel.scrollWidth / 2; // half the scrollWidth
+    const getResetThreshold = () => {
+      // Calculate the width of original testimonials only
+      const firstChild = carousel.firstElementChild;
+      if (!firstChild) return 0;
+      
+      const cardWidth = firstChild.offsetWidth;
+      const gap = 24; // 6 * 4px (gap-6 in Tailwind)
+      return originalCount * (cardWidth + gap);
+    };
 
     const animate = (timestamp) => {
       if (!lastTimestamp) lastTimestamp = timestamp;
       const delta = timestamp - lastTimestamp;
       lastTimestamp = timestamp;
 
-      // move left
       x -= delta * pxPerMs;
 
-      // seamless wrap: when we've moved past half the scroll width, jump forward by half width
-      const halfWidth = resetThreshold();
-      if (Math.abs(x) >= halfWidth) {
-        // add back the halfWidth so visual position is continuous
-        x += halfWidth;
+      const resetThreshold = getResetThreshold();
+      
+      // Reset position when we've moved one full set width
+      if (Math.abs(x) >= resetThreshold) {
+        // Smooth reset without visible jump
+        x = x + resetThreshold;
       }
 
       carousel.style.transform = `translateX(${x}px)`;
@@ -57,12 +61,14 @@ const Testimonial = () => {
     // Start animation
     animId = requestAnimationFrame(animate);
 
-    // Pause/resume handlers (preserve x so no jump)
     const pause = () => {
-      if (animId) cancelAnimationFrame(animId);
-      animId = null;
-      lastTimestamp = null; // will be set on resume to current timestamp
+      if (animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+        lastTimestamp = null;
+      }
     };
+
     const resume = () => {
       if (!animId) {
         lastTimestamp = null;
@@ -70,39 +76,45 @@ const Testimonial = () => {
       }
     };
 
-    // Hover / focus listeners
+    // Event listeners for pause/resume
     track.addEventListener("mouseenter", pause);
     track.addEventListener("mouseleave", resume);
     track.addEventListener("focusin", pause);
     track.addEventListener("focusout", resume);
 
-    // Handle resize: rebuild clones & recalc
+    // Handle window resize
     let resizeTimer = null;
     const handleResize = () => {
-      // debounce
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        // stop animation
-        if (animId) cancelAnimationFrame(animId);
-        animId = null;
+        // Pause animation during resize
+        if (animId) {
+          cancelAnimationFrame(animId);
+          animId = null;
+        }
 
-        // remove all clones (anything after originalCount)
+        // Clear cloned nodes
         while (carousel.children.length > originalCount) {
           carousel.removeChild(carousel.lastChild);
         }
 
-        // re-clone originals
+        // Re-clone nodes
         originalNodes.forEach((node) => {
           carousel.appendChild(node.cloneNode(true));
         });
 
-        // reset transform and x to keep it consistent (don't force jump)
-        // keep x within new halfWidth range
-        const halfWidth = resetThreshold();
-        x = ((x % halfWidth) + halfWidth) % halfWidth; // normalize
+        // Reset position more carefully
+        const resetThreshold = getResetThreshold();
+        if (resetThreshold > 0) {
+          // Normalize x position within bounds
+          x = ((x % resetThreshold) + resetThreshold) % resetThreshold;
+          // Ensure x is negative (moving left)
+          if (x > 0) x -= resetThreshold;
+        }
+
         carousel.style.transform = `translateX(${x}px)`;
 
-        // restart animation
+        // Resume animation
         lastTimestamp = null;
         animId = requestAnimationFrame(animate);
       }, 150);
@@ -119,20 +131,26 @@ const Testimonial = () => {
       track.removeEventListener("focusout", resume);
       window.removeEventListener("resize", handleResize);
       clearTimeout(resizeTimer);
+      carousel.style.willChange = "auto";
     };
   }, []);
 
   return (
     <section className="py-16 bg-white relative overflow-hidden">
-      <h2 className="text-5xl text-[#46171A] font-wa-flat font-medium text-center mb-8 relative z-10">
+      <h2 className="text-5xl text-[#46171A] font-bold text-center mb-8 relative z-10">
         Client Testimonials
       </h2>
+
       <div
         ref={trackRef}
-        className="max-w-[100%] md:max-w-[75%] mx-auto relative px-4 overflow-hidden"
-        tabIndex={0} // allows focusin/focusout for keyboard users
+        className="max-w-[100%] md:max-w-[80%] mx-auto relative px-4 overflow-hidden"
+        tabIndex={0}
       >
-        <div ref={carouselRef} className="flex gap-6 w-max ">
+        {/* Faded overlays on both sides */}
+        <div className="pointer-events-none absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-20"></div>
+        <div className="pointer-events-none absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-20"></div>
+
+        <div ref={carouselRef} className="flex gap-6 w-max">
           {testimonialsData.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} />
           ))}
@@ -144,8 +162,11 @@ const Testimonial = () => {
 
 const TestimonialCard = ({ rating, text, name, title }) => (
   <div
-    className="w-[300px] md:w-[450px] flex-shrink-0 mt-4 mb-4 bg-[#d6bfa4] text-black rounded-2xl p-6 md:p-8 shadow-lg border border-[rgba(226,205,179,0.15)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#46171A] hover:text-[#fff] cursor-pointer"
-    // keep hover styles simple and applied via CSS class
+    className="w-[300px] md:w-[450px] flex-shrink-0 mt-4 mb-4 
+    bg-[#d6bfa4] text-black rounded-2xl p-6 md:p-8 
+    shadow-lg border border-[rgba(226,205,179,0.15)] 
+    transition-all duration-300 
+    hover:scale-[1.02] hover:bg-[#46171A] hover:text-white cursor-pointer"
   >
     <div className="flex justify-start gap-1 mb-5 text-xl">
       {"★".repeat(rating)}

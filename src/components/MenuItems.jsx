@@ -113,7 +113,7 @@ const MenuItems = () => {
               className={`px-5 py-2 text-s rounded-lg cursor-pointer font-semibold transition-colors duration-300 ${
                 activeCategory === cat
                   ? "bg-[#46171A] text-white"
-                  : "bg-[#ede9dc] text-[#46171A] hover:bg-[#F15A24] focus:bg-[#F15A24] active:bg=[#F15A24] hover:text-white"
+                  : "bg-[#ede9dc] text-[#46171A] hover:bg-[#F15A24] hover:text-white"
               }`}
             >
               {cat}
@@ -137,7 +137,7 @@ const MenuItems = () => {
                   {/* <p className="text-[#46171A] text-lg font-medium mb-6 opacity-90">
                     {activeCategory}
                   </p> */}
-                  <button className="px-6 py-2 mt-4 text-md  font-medium rounded-lg transition-colors cursor-pointer duration-300 bg-white text-red-700 hover:bg-[#F15A24] hover:text-white">
+                  <button className="px-6 py-2 mt-4 text-md  font-medium rounded-lg transition-colors cursor-pointer duration-300 bg-white text-red-700 hover:bg-[#F15A24] focus:bg-[#F15A24] active:bg-[#F15A24] hover:text-white">
                     Add to Cart
                   </button>
                 </div>
