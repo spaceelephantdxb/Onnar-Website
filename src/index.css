@@ -12,7 +12,7 @@
   font-family: "playfair";
   src: url(/PlayfairDisplay-VariableFont_wght.ttf);
 }
-.font-wa-flat {
+.font-wa-flat { 
   font-family: "WA Flat Brush", cursive;
 }
 .inter {
