@@ -113,7 +113,7 @@ const MenuItems = () => {
               className={`px-5 py-2 text-s rounded-lg cursor-pointer font-semibold transition-colors duration-300 ${
                 activeCategory === cat
                   ? "bg-[#46171A] text-white"
-                  : "bg-[#ede9dc] text-[#46171A] hover:bg-[#F15A24] hover:text-white"
+                  : "bg-[#ede9dc] text-[#46171A] hover:bg-[#F15A24] focus:bg-[#F15A24] active:bg=[#F15A24] hover:text-white"
               }`}
             >
               {cat}
@@ -157,10 +157,10 @@ const MenuItems = () => {
 
         {/* Bottom Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-          <button className="bg-[#46171A] cursor-pointer text-white font-wa-flat text-base sm:text-xl tracking-widest px-6 py-2 sm:px-8 sm:py-3 rounded-xl font-light hover:bg-[#D44D1F] transition-colors duration-300">
+          <button className="bg-[#46171A] cursor-pointer text-white font-wa-flat text-base sm:text-xl tracking-widest px-6 py-2 sm:px-8 sm:py-3 rounded-xl font-light hover:bg-[#D44D1F] focus:bg-[#D44D1F] active:bg-[#D44D1F] transition-colors duration-300">
             MAKE A RESERVATION
           </button>
-          <button className="bg-[#D6BFA4] cursor-pointer font-wa-flat text-[#46171A] text-base sm:text-xl tracking-widest px-6 py-2 sm:px-8 sm:py-3 rounded-xl font-semibold hover:bg-[#F15A24] hover:text-white transition-colors duration-300">
+          <button className="bg-[#D6BFA4] cursor-pointer font-wa-flat text-[#46171A] text-base sm:text-xl tracking-widest px-6 py-2 sm:px-8 sm:py-3 rounded-xl font-semibold hover:bg-[#F15A24] focus:bg-[#D44D1F] active:bg-[#D44D1F] hover:text-white transition-colors duration-300">
             DOWNLOAD THE MENU CARD
           </button>
         </div>

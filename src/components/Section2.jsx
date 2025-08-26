@@ -6,15 +6,15 @@ const HeroSection = () => {
       <div className="flex flex-col-reverse md:flex-row items-center justify-between">
         
         {/* Left Content */}
-        <div className="font-wa-flat text-center md:text-left mt-6 md:mt-0 md:pl-24">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-[#46171A] leading-10 lg:leading-16 tracking-wide">
+        <div className="font-wa-flat text-center md:text-left mt-6 md:mt-0 md:pl-24">                             
+          <h2 className="text-5xl ml-0 md:ml-40 md:text-6xl lg:text-7xl font-semibold text-[#46171A] leading-10 lg:leading-16 tracking-wide">
             Savor the Sunrise <br />
             with{" "}
             <span className="text-[#F15A24]">Authentic Arabic</span> <br />
             & Turkish Delights
           </h2>
           
-          <button className="mt-6 mb-10  bg-[#D7BFA7] text-2xl cursor-pointer text-[#46171A] tracking-wider font-light px-6 py-3 rounded-md hover:bg-[#F15A24] focus:bg-[#F15A24] active:bg-[#F15A24] hover:text-white transition">
+          <button className="mt-6 mb-10 ml-0 md:ml-40  bg-[#D7BFA7] text-2xl cursor-pointer text-[#46171A] tracking-wider font-light px-6 py-3 rounded-md hover:bg-[#F15A24] focus:bg-[#F15A24] active:bg-[#F15A24] hover:text-white transition">
             EXPLORE OUR MENU
           </button>
         </div>

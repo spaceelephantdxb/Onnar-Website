@@ -144,7 +144,7 @@ const Testimonial = () => {
 
 const TestimonialCard = ({ rating, text, name, title }) => (
   <div
-    className="w-[250px] md:w-[450px] flex-shrink-0 mt-4 mb-4 bg-[#d6bfa4] text-black rounded-2xl p-6 md:p-8 shadow-lg border border-[rgba(226,205,179,0.15)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#46171A] hover:text-[#fff] cursor-pointer"
+    className="w-[300px] md:w-[450px] flex-shrink-0 mt-4 mb-4 bg-[#d6bfa4] text-black rounded-2xl p-6 md:p-8 shadow-lg border border-[rgba(226,205,179,0.15)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#46171A] hover:text-[#fff] cursor-pointer"
     // keep hover styles simple and applied via CSS class
   >
     <div className="flex justify-start gap-1 mb-5 text-xl">
