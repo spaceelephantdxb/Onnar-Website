@@ -5,9 +5,10 @@ import Section2 from "./components/Section2";
 // import MenuItems from "./components/MenuItems";
 import DeliveryInfo from "./components/DeliveryInfo";
 import Testimonial from "./components/Testimonial";
-import FounderSection from "./components/FounderSection";
+// import FounderSection from "./components/FounderSection";
 import Footer from "./components/Footer";
 import MenuSection from "./components/MenuTrash";
+import Quote from "./components/Quote";
 
 const MainPage = () => {
   return (
@@ -19,7 +20,8 @@ const MainPage = () => {
       {/* <MenuItems /> */}
       <DeliveryInfo />
       <Testimonial />
-      <FounderSection />
+      {/* <FounderSection /> */}
+      <Quote />
       <Footer />
     </div>
   );

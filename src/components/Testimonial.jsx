@@ -137,7 +137,7 @@ const Testimonial = () => {
 
   return (
     <section className="py-16 bg-white relative overflow-hidden">
-      <h2 className="text-5xl text-[#46171A] font-bold text-center mb-8 relative z-10">
+      <h2 className="text-5xl text-[#46171A] font-bold text-center mb-8 relative z-10 font-wa-flat">
         Client Testimonials
       </h2>
 

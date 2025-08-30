@@ -94,7 +94,7 @@ const Navbar = () => {
         <a
           href="#"
           onClick={handleNavClick}
-          className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#F15A24] transition-colors w-full md:w-auto"
+          className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors w-full md:w-auto"
         >
           Home
         </a>
@@ -110,7 +110,7 @@ const Navbar = () => {
           }
         >
           <button
-            className="flex justify-between items-center text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#F15A24] transition-colors w-full md:w-auto"
+            className="flex justify-between items-center text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors w-full md:w-auto"
             onClick={() =>
               window.innerWidth < 768 && setIsVenturesOpen(!isVenturesOpen)
             }
@@ -142,28 +142,28 @@ const Navbar = () => {
             <a
               href="https://uluamirgroup.com"
               onClick={handleNavClick}
-              className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
+              className="text-white block py-2 px-4 hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors text-sm md:text-base"
             >
               Ulu Amir Group
             </a>
             <Link
               to="/lowacoffee"
               onClick={handleNavClick}
-              className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
+              className="text-white block py-2 px-4 hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors text-sm md:text-base"
             >
               Lowa Coffee
             </Link>
             <Link
               to="/LullPage"
               onClick={handleNavClick}
-              className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
+              className="text-white block py-2 px-4 hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors text-sm md:text-base"
             >
               Lull Cafe
             </Link>
             <a
               href="#"
               onClick={handleNavClick}
-              className="text-white block py-2 px-4 hover:bg-[#F15A24] transition-colors text-sm md:text-base"
+              className="text-white block py-2 px-4 hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors text-sm md:text-base"
             >
               Luxury Real Estate
             </a>
@@ -173,21 +173,21 @@ const Navbar = () => {
         <a
           href="#founder"
           onClick={handleNavClick}
-          className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#F15A24] transition-colors w-full md:w-auto"
+          className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors w-full md:w-auto"
         >
           Founders Message
         </a>
         <a
           href="#aboutus"
           onClick={handleNavClick}
-          className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#F15A24] transition-colors w-full md:w-auto"
+          className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors w-full md:w-auto"
         >
           About Us
         </a>
         <a
           href="#contantus"
           onClick={handleNavClick}
-          className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#F15A24] transition-colors w-full md:w-auto"
+          className="text-white font-medium text-sm md:text-[16px] py-2 px-3 md:py-[10px] md:px-[15px] rounded-[4px] hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors w-full md:w-auto"
         >
           Contact Us
         </a>
