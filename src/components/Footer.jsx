@@ -13,11 +13,11 @@ import {
 const Footer = () => {
   // Social Media Links
   const socialLinks = [
-    { icon: FaInstagram, url: "https://www.instagram.com/onnar.bali" },
+    { icon: FaInstagram, url: "https://www.instagram.com/onnar.bali/" },
     { icon: FaFacebookF, url: "https://www.facebook.com/uluamirgroup" },
     { icon: FaLinkedinIn, url: "https://www.linkedin.com/company/uluamirgroup" },
     { icon: FaYoutube, url: "https://www.youtube.com/@uluamirgroup" },
-    { icon: FaWhatsapp, url: "https://wa.me/6281139606303" }, // Direct WhatsApp link
+    { icon: FaWhatsapp, url: "https://wa.me/971561313137" }, // Direct WhatsApp link
   ];
 
   // Quick Links

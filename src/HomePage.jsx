@@ -10,7 +10,8 @@ import Footer from "./components/Footer";
 import MenuSection from "./components/MenuTrash";
 import Quote from "./components/Quote";
 import Carousel from "./components/Carousel";
-  
+import SocialIcons from "./components/ui/SocialIcons";
+
 const MainPage = () => {
   return (
     <div>
@@ -25,6 +26,7 @@ const MainPage = () => {
       {/* <FounderSection /> */}
       <Quote />
       <Footer />
+      <SocialIcons />
     </div>
   );
 };
