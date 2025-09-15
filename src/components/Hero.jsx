@@ -5,14 +5,14 @@ const Hero = () => {
     <section className="relative w-full h-full">
       {/* Desktop Image */}
       <img
-        src="./hero.png"
+        src="./hero_updated.png"
         alt="Hero Desktop"
         className="hidden md:block w-full h-full object-cover"
       />
 
       {/* Mobile Image */}
       <img
-        src="./MobileHero.png"
+        src="./MobileHeroz.png"
         alt="Hero Mobile"
         className="block md:hidden w-full h-full object-cover"
       />

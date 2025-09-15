@@ -9,13 +9,15 @@ import Testimonial from "./components/Testimonial";
 import Footer from "./components/Footer";
 import MenuSection from "./components/MenuTrash";
 import Quote from "./components/Quote";
-
+import Carousel from "./components/Carousel";
+  
 const MainPage = () => {
   return (
     <div>
       <Navbar />
       <Hero />
-      <Section2 />
+      <Carousel />
+      {/* <Section2 /> */}
       <MenuSection />
       {/* <MenuItems /> */}
       <DeliveryInfo />

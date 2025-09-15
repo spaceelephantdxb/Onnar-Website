@@ -5,20 +5,20 @@ const HeroSection = () => {
     <section className="w-full bg-[#ECE7DA]">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between">
         {/* Left Content */}
-        <div className="font-wa-flat text-center md:text-left mt-6 md:mt-0 md:pl-24">
-          <h2 className="text-5xl ml-0 md:ml-40 md:text-6xl lg:text-7xl font-semibold text-[#46171A] leading-10 lg:leading-16 tracking-wide">
+        <div className="font-wa-flat text-center md:text-left mt-6 md:mt-0 lg:pl-24">
+          <h2 className="text-5xl ml-0 md:ml-10  xl:ml-40 md:text-6xl lg:text-6xl xl:text-7xl font-semibold text-[#46171A] leading-10 md:leading-12 lg:leading-16 tracking-wide">
             Savor the Sunrise <br />
             with <span className="text-[#F15A24]">Authentic Arabic</span> <br />
              Delights
           </h2>
 
-          <button className="mt-6 mb-10 ml-0 md:ml-40  bg-[#D7BFA7] text-2xl cursor-pointer text-[#46171A] tracking-wider font-light px-6 py-3 rounded-md hover:bg-[#46171A] focus:bg-[#46171A] active:bg-[#46171A] hover:text-white transition">
+          <button className="mt-6 mb-10 ml-0 md:ml-10d xl:ml-40 bg-[#D7BFA7] text-2xl cursor-pointer text-[#46171A] tracking-wider font-light px-6 py-3 rounded-md hover:bg-[#46171A] focus:bg-[#46171A] active:bg-[#46171A] hover:text-white transition">
             EXPLORE OUR MENU
           </button>
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full md:w-1/2 flex justify-end items-start">
+        <div className="relative w-full md:w-1/3 flex justify-end items-start">
           <img
             src="./food.png" // replace with your image
             alt="Arabic Breakfast"

@@ -146,20 +146,16 @@ const Navbar = () => {
             >
               Ulu Amir Group
             </a>
-            <Link
-              to="/lowacoffee"
-              onClick={handleNavClick}
+            <a href="https://uluamirgroup.com/LolwaCoffee.html"
               className="text-white block py-2 px-4 hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors text-sm md:text-base"
             >
               Lowa Coffee
-            </Link>
-            <Link
-              to="/LullPage"
-              onClick={handleNavClick}
+            </a>
+            <a href="https://uluamirgroup.com/lull.html"
               className="text-white block py-2 px-4 hover:bg-[#EED9CC] hover:text-[#46171A] transition-colors text-sm md:text-base"
             >
               Lull Cafe
-            </Link>
+            </a>
             <a
               href="#"
               onClick={handleNavClick}

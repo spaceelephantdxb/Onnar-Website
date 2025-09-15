@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-full font-medium transition-all duration-200 text-lg cursor-pointer ${
+            className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 text-lg cursor-pointer ${
               activeTab === tab
                 ? "bg-[#46171A] text-white shadow-lg"
                 : "bg-white text-[#46171A] hover:bg-orange-500/10"
