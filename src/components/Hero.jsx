@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import ReservationForm from "./ReservationForm"; // adjust the path as needed
 
 const Hero = () => {
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <section className="relative w-full h-full">
       {/* Desktop Image */}
@@ -16,17 +19,21 @@ const Hero = () => {
         alt="Hero Mobile"
         className="block md:hidden w-full h-full object-cover"
       />
+
       {/* Button */}
       <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2">
-        <button className="bg-[#46171A] w-60 md:w-100 cursor-pointer font-wa-flat tracking-widest text-white hover:text-[#46171A] font-light text-xl lg:text-2xl py-2 md:py-3 px-6 md:px-16 rounded-xl shadow-lg hover:bg-[#eed9cc] focus:bg-[#eed9cc] active:bg-[#eed9cc] transition-colors">
+        <button
+          onClick={() => setShowForm(true)}   // ✅ open the form
+          className="bg-[#46171A] w-60 md:w-100 cursor-pointer font-wa-flat tracking-widest text-white hover:text-[#46171A] font-light text-xl lg:text-2xl py-2 md:py-3 px-6 md:px-16 rounded-xl shadow-lg hover:bg-[#eed9cc] focus:bg-[#eed9cc] active:bg-[#eed9cc] transition-colors"
+        >
           MAKE A RESERVATION
         </button>
       </div>
+
+      {/* Show Reservation Form when state is true */}
+      {showForm && <ReservationForm onClose={() => setShowForm(false)} />}
     </section>
   );
 };
 
 export default Hero;
-
-
-  
