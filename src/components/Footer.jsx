@@ -14,7 +14,7 @@ const Footer = () => {
   // Social Media Links
   const socialLinks = [
     { icon: FaInstagram, url: "https://www.instagram.com/onnar.bali/" },
-    { icon: FaFacebookF, url: "https://www.facebook.com/uluamirgroup" },
+    { icon: FaFacebookF, url: "https://www.facebook.com/OnnarBali/" },
     { icon: FaLinkedinIn, url: "https://www.linkedin.com/company/uluamirgroup" },
     { icon: FaYoutube, url: "https://www.youtube.com/@uluamirgroup" },
     { icon: FaWhatsapp, url: "https://wa.me/971561313137" }, // Direct WhatsApp link
@@ -76,7 +76,7 @@ const Footer = () => {
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-[#d9cfa8]"></span>
           </h3>
           <img
-            src="./location.png"
+            src="./onnar-location.png"
             alt="Location map"
             loading="lazy"
             className="w-full max-w-[320px] rounded-xl cursor-pointer shadow-xl mt-5 hover:scale-105 focus:scale-105 transition-all duration-300"

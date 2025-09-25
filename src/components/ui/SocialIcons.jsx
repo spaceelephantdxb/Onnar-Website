@@ -44,7 +44,7 @@ const SocialIcons = () => {
         <a
           data-social="facebook"
           aria-label="Facebook"
-          href="#"
+          href="https://www.facebook.com/OnnarBali/"
           target="_blank"
           rel="noopener noreferrer"
           className="relative overflow-hidden flex justify-center items-center w-12 h-12 rounded-full text-gray-600 bg-white transition-all duration-300 ease-in-out no-underline shadow-md hover:shadow-lg hover:-translate-y-1"
