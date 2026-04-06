@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { 
   FaPhone, 
   FaEnvelope, 
@@ -23,12 +24,10 @@ const Footer = () => {
   // Quick Links
   const quickLinks = [
     { name: "Home", url: "/" },
-    { name: "Our Venture", url: "/venture" },
     { name: "About Us", url: "/about" },
     { name: "Contact Us", url: "/contact" },
-    { name: "On Nar", url: "/onnar" },
-    { name: "Blogs", url: "/blogs" },
-    { name: "FAQs", url: "/faqs" },
+    { name: "Terms & Conditions", url: "/terms" },
+    { name: "Privacy Policy", url: "/privacy" },
   ];
 
   return (
@@ -158,15 +157,15 @@ const Footer = () => {
           <ul className="flex lg:flex-col flex-wrap justify-center text-sm gap-2">
             {quickLinks.map(({ name, url }) => (
               <li key={name} className="transition-all duration-300">
-                <a
-                  href={url}
+                <Link
+                  to={url}
                   className="text-[#c8c5b7] px-3 py-1 rounded-full inline-block transition-all duration-300
-                             hover:text-white focus:text-white 
-                             hover:bg-[rgba(255,255,255,0.1)] focus:bg-[rgba(255,255,255,0.1)] 
+                             hover:text-white focus:text-white
+                             hover:bg-[rgba(255,255,255,0.1)] focus:bg-[rgba(255,255,255,0.1)]
                              hover:scale-105 focus:scale-105"
                 >
                   {name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
