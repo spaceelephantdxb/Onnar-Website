@@ -37,37 +37,38 @@ Special Requests: ${formData.requests}`;
 
   return (
     <div
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-3 sm:p-4"
       onClick={onClose}
     >
       <div
-        className="bg-white shadow-xl rounded-3xl p-8 md:p-12 w-full max-w-2xl relative"
+        className="bg-white shadow-xl rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 w-full max-w-2xl relative max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 font-bold text-2xl cursor-pointer"
+          aria-label="Close"
+          className="absolute top-2 right-3 sm:top-4 sm:right-4 text-gray-600 hover:text-gray-900 font-bold text-3xl leading-none cursor-pointer z-10"
         >
           &times;
         </button>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#46171A] mb-2">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#46171A] mb-1 sm:mb-2 pr-8">
           Book a Table
         </h2>
-        <p className="text-center text-red-900 font-medium mb-6">
+        <p className="text-center text-red-900 font-medium text-sm sm:text-base mb-4 sm:mb-6">
           Breakfast time: 8 AM - 11 AM
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="flex flex-col md:flex-row gap-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-6">
+          <div className="flex flex-col md:flex-row gap-3 sm:gap-4">
             <input
               type="text"
               name="name"
               placeholder="Full Name"
               value={formData.name}
               onChange={handleChange}
-              className="flex-1 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="flex-1 px-4 py-2.5 sm:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             />
             <input
@@ -76,18 +77,18 @@ Special Requests: ${formData.requests}`;
               placeholder="Phone Number"
               value={formData.phone}
               onChange={handleChange}
-              className="flex-1 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="flex-1 px-4 py-2.5 sm:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             />
           </div>
 
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col md:flex-row gap-3 sm:gap-4">
             <input
               type="date"
               name="date"
               value={formData.date}
               onChange={handleChange}
-              className="flex-1 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="flex-1 px-4 py-2.5 sm:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             />
             <input
@@ -97,7 +98,7 @@ Special Requests: ${formData.requests}`;
               value={formData.guests}
               onChange={handleChange}
               placeholder="Number of Guests"
-              className="flex-1 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="flex-1 px-4 py-2.5 sm:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             />
           </div>
@@ -109,7 +110,7 @@ Special Requests: ${formData.requests}`;
             placeholder="Email (optional)"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-4 py-2.5 sm:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
 
           <textarea
@@ -117,13 +118,13 @@ Special Requests: ${formData.requests}`;
             placeholder="Special Requests"
             value={formData.requests}
             onChange={handleChange}
-            className="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
-            rows="4"
+            className="w-full px-4 py-2.5 sm:py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
+            rows="3"
           ></textarea>
 
           <button
             type="submit"
-            className="w-full py-3 bg-[#46171A] text-white font-semibold rounded-xl hover:bg-orange-600 transition-colors"
+            className="w-full py-2.5 sm:py-3 bg-[#46171A] text-white font-semibold rounded-xl hover:bg-orange-600 transition-colors"
           >
             Reserve Now
           </button>

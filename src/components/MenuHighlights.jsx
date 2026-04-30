@@ -27,6 +27,21 @@ const FEATURED = [
 
 const LIST_ITEMS = [
   {
+    name: "Chicken Shawarma",
+    desc: "Marinated overnight, carved fresh from the spit, wrapped warm.",
+    img: "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775564799/ShawarmaPlate-chicken_cc8o3v.jpg",
+  },
+  {
+    name: "Beef Shawarma",
+    desc: "Slow-roasted spiced beef with tahini and pickles.",
+    img: "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775564933/ShawarmaPlate-Beef_sghtjg.jpg",
+  },
+  {
+    name: "Tawook",
+    desc: "Charcoal-grilled chicken skewers with garlic toum.",
+    img: "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775569061/Tawook_wo88la.webp",
+  },
+  {
     name: "Falafel",
     desc: "Crispy chickpea fritters with herbs and sesame.",
     img: "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775569053/Falafel_ajhc7j.jpg",
@@ -49,11 +64,13 @@ const LIST_ITEMS = [
 ];
 
 const MenuHighlights = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(
+    LIST_ITEMS.findIndex((i) => i.name === "Falafel")
+  );
   const active = LIST_ITEMS[activeIndex];
 
   return (
-    <section className="bg-[#ECE7DA] py-14 md:py-20 px-5 md:px-10 font-wa-flat">
+    <section id="menu" className="bg-[#ECE7DA] py-14 md:py-20 px-5 md:px-10 font-wa-flat scroll-mt-24">
       {/* Top badges */}
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 pb-12 md:pb-16 border-b border-[#46171A]/15">
         {BADGES.map((b) => (
@@ -72,7 +89,7 @@ const MenuHighlights = () => {
       {/* Heading row */}
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-3 mt-12 md:mt-16 mb-8 md:mb-10">
         <h2 className="text-4xl md:text-6xl font-bold tracking-normal text-[#46171A]">
-          Menu Highlights
+          Best Sellers
         </h2>
         <p className="text-[#46171A]/70 text-sm md:text-base tracking-wide">
           Full menu available in-store and online
@@ -122,24 +139,21 @@ const MenuHighlights = () => {
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex-1">
                       <h4
-                        className={`text-lg md:text-xl font-semibold tracking-wide transition-colors duration-300 ${
-                          isActive ? "text-[#46171A]" : "text-[#46171A]/60 group-hover:text-[#46171A]"
-                        }`}
+                        className={`text-lg md:text-xl font-semibold tracking-wide transition-colors duration-300 ${isActive ? "text-[#46171A]" : "text-[#46171A]/60 group-hover:text-[#46171A]"
+                          }`}
                       >
                         {item.name}
                       </h4>
                       <p
-                        className={`text-xs md:text-sm mt-1 transition-all duration-500 overflow-hidden ${
-                          isActive ? "max-h-20 opacity-100 text-[#46171A]/70" : "max-h-0 opacity-0"
-                        }`}
+                        className={`text-xs md:text-sm mt-1 transition-all duration-500 overflow-hidden ${isActive ? "max-h-20 opacity-100 text-[#46171A]/70" : "max-h-0 opacity-0"
+                          }`}
                       >
                         {item.desc}
                       </p>
                     </div>
                     <span
-                      className={`text-[#46171A] transition-transform duration-300 ${
-                        isActive ? "translate-x-1" : "-translate-x-2 opacity-40 group-hover:translate-x-0 group-hover:opacity-100"
-                      }`}
+                      className={`text-[#46171A] transition-transform duration-300 ${isActive ? "translate-x-1" : "-translate-x-2 opacity-40 group-hover:translate-x-0 group-hover:opacity-100"
+                        }`}
                     >
                       &rarr;
                     </span>
@@ -157,9 +171,8 @@ const MenuHighlights = () => {
               key={item.name}
               src={item.img}
               alt={item.name}
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${
-                i === activeIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
-              }`}
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${i === activeIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                }`}
             />
           ))}
           <div className="absolute inset-0 bg-gradient-to-t from-[#46171A]/40 via-transparent to-transparent pointer-events-none" />

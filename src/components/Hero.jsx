@@ -5,22 +5,19 @@ const Hero = () => {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <section className="relative w-full bg-[#ECE7DA] font-wa-flat overflow-hidden">
+    <section id="hero" className="relative w-full bg-[#ECE7DA] font-wa-flat overflow-hidden scroll-mt-24">
       <div className="grid grid-cols-1 md:grid-cols-2 h-screen min-h-[640px]">
         {/* Left — Copy */}
-        <div className="relative flex flex-col justify-center px-6 py-10 md:px-12 lg:px-20 md:py-16 order-2 md:order-1">
-          <div className="absolute -top-16 -left-16 w-64 h-64 rounded-full border border-[#46171A]/15 pointer-events-none" />
-          <div className="absolute bottom-10 left-10 w-2 h-2 rounded-full bg-[#F15A24]/80 pointer-events-none" />
-
+        <div className="relative flex flex-col justify-center px-6 pt-2 pb-8 md:px-12 lg:px-20 md:py-16 order-2 md:order-1">
           <span className="inline-block w-fit text-[#46171A] text-[10px] md:text-xs tracking-[0.3em] uppercase border border-[#46171A]/30 rounded-full px-3 py-1 mb-5 md:mb-7">
             Authentic Lebanese · Uluwatu
           </span>
 
-          <h1 className="text-[#46171A] text-4xl sm:text-5xl md:text-6xl 2xl:text-8xl leading-[1.05] font-semibold tracking-normal">
-            A Taste of
-            <br />
-            the Levant
-            <br />
+          <h1 className="text-[#46171A] text-4xl md:text-6xl 2xl:text-8xl leading-[1.05] font-semibold tracking-normal whitespace-nowrap md:whitespace-normal">
+            A Taste of<span className="md:hidden"> </span>
+            <br className="hidden md:block" />
+            the Levant<span className="md:hidden"> </span>
+            <br className="hidden md:block" />
             <span className="font-light text-[#46171A]/70">in Bali.</span>
           </h1>
 
@@ -66,7 +63,7 @@ const Hero = () => {
         </div>
 
         {/* Right — Image */}
-        <div className="relative order-1 md:order-2 h-[40vh] md:h-full overflow-hidden">
+        <div className="relative order-1 md:order-2 h-[55vh] md:h-full overflow-hidden">
           <img
             src="./hero_updated.png"
             alt="Hero Desktop"
@@ -79,7 +76,7 @@ const Hero = () => {
           />
 
           <div className="hidden md:block absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#ECE7DA] to-transparent pointer-events-none" />
-          <div className="md:hidden absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#ECE7DA] to-transparent pointer-events-none" />
+          <div className="md:hidden absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-[#ECE7DA] to-transparent pointer-events-none" />
 
           {/* Floating chip */}
           <div className="absolute bottom-5 right-5 md:bottom-8 md:right-8 bg-white/95 backdrop-blur rounded-full px-4 py-2 shadow-xl flex items-center gap-2">
