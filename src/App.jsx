@@ -1,5 +1,3 @@
-import LowaCoffee from './components/LowaCoffee'
-import LullPage from './components/Lull';
 import HomePage from './HomePage'
 import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
@@ -15,8 +13,6 @@ const App = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/lowacoffee" element={<LowaCoffee />} />
-        <Route path="/LullPage" element={<LullPage />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/terms" element={<TermsAndConditions />} />

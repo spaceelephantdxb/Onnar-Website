@@ -1,13 +1,11 @@
 import React from "react";
 import Navbar from "./components/NavBar";
 import Hero from "./components/Hero";
-import Section2 from "./components/Section2";
-// import MenuItems from "./components/MenuItems";
 import DeliveryInfo from "./components/DeliveryInfo";
 import Testimonial from "./components/Testimonial";
-// import FounderSection from "./components/FounderSection";
 import Footer from "./components/Footer";
 import MenuSection from "./components/MenuTrash";
+import MenuHighlights from "./components/MenuHighlights";
 import Quote from "./components/Quote";
 import Carousel from "./components/Carousel";
 import SocialIcons from "./components/ui/SocialIcons";
@@ -17,13 +15,11 @@ const MainPage = () => {
     <div>
       <Navbar />
       <Hero />
-      <Carousel />
-      {/* <Section2 /> */}
-      <MenuSection />
-      {/* <MenuItems /> */}
-      <DeliveryInfo />
-      <Testimonial />
-      {/* <FounderSection /> */}
+      <MenuHighlights />
+      {/* <Carousel /> */}
+      {/* <MenuSection /> */}
+      {/* <DeliveryInfo /> */}
+      {/* <Testimonial /> */}
       <Quote />
       <Footer />
       <SocialIcons />

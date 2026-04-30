@@ -1,217 +1,181 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+
+const testimonialsData = [
+  {
+    rating: "4.8",
+    text: "Everything tasted fresh and well-balanced. You can really tell care goes into every dish.",
+    name: "Jason Miller",
+    title: "Local Food Enthusiast",
+  },
+  {
+    rating: "4.9",
+    text: "The food was consistent, comforting, and honestly better than expected. A solid spot.",
+    name: "Emily Richardson",
+    title: "Regular Customer",
+  },
+  {
+    rating: "5.0",
+    text: "Authentic flavors that took me right back to Beirut. The shawarma is the best I've had outside the Levant.",
+    name: "Ahmed Khalifa",
+    title: "Hospitality Consultant",
+  },
+  {
+    rating: "4.9",
+    text: "A warm, welcoming space with food that feels like home. Will be back many times over.",
+    name: "Sarah Al-Mansoori",
+    title: "Travel Writer",
+  },
+  {
+    rating: "5.0",
+    text: "Generous portions, beautifully presented, and the staff make every visit feel personal.",
+    name: "Raj Patel",
+    title: "Food Blogger",
+  },
+  {
+    rating: "4.8",
+    text: "From the manakeesh to the kunafa, every bite is crafted with intent. A standout in Uluwatu.",
+    name: "Fatima Al-Qassimi",
+    title: "Resident",
+  },
+];
+
+const FOOD_IMAGES = [
+  "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775564799/ShawarmaPlate-chicken_cc8o3v.jpg",
+  "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775564933/ShawarmaPlate-Beef_sghtjg.jpg",
+  "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775569061/Tawook_wo88la.webp",
+  "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775569056/Halloumi_Sandwich_thtkxj.jpg",
+  "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775569053/Falafel_ajhc7j.jpg",
+  "https://res.cloudinary.com/dop8fg4uo/image/upload/v1775569057/easy-french-fries-1_hj0bys.jpg",
+];
 
 const Testimonial = () => {
-  const carouselRef = useRef(null);
-  const trackRef = useRef(null);
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(3);
 
   useEffect(() => {
-    const carousel = carouselRef.current;
-    const track = trackRef.current;
-    if (!carousel || !track) return;
-
-    const originalNodes = Array.from(carousel.children);
-    const originalCount = originalNodes.length;
-
-    // Clear any existing cloned nodes
-    while (carousel.children.length > originalCount) {
-      carousel.removeChild(carousel.lastChild);
-    }
-
-    // Clone nodes for infinite scroll
-    originalNodes.forEach((node) => {
-      carousel.appendChild(node.cloneNode(true));
-    });
-
-    let animId = null;
-    let lastTimestamp = null;
-    let x = 0;
-    const pxPerMs = window.innerWidth < 768 ? 0.07 : 0.04;
-
-    carousel.style.willChange = "transform";
-
-    const getResetThreshold = () => {
-      // Calculate the width of original testimonials only
-      const firstChild = carousel.firstElementChild;
-      if (!firstChild) return 0;
-      
-      const cardWidth = firstChild.offsetWidth;
-      const gap = 24; // 6 * 4px (gap-6 in Tailwind)
-      return originalCount * (cardWidth + gap);
-    };
-
-    const animate = (timestamp) => {
-      if (!lastTimestamp) lastTimestamp = timestamp;
-      const delta = timestamp - lastTimestamp;
-      lastTimestamp = timestamp;
-
-      x -= delta * pxPerMs;
-
-      const resetThreshold = getResetThreshold();
-      
-      // Reset position when we've moved one full set width
-      if (Math.abs(x) >= resetThreshold) {
-        // Smooth reset without visible jump
-        x = x + resetThreshold;
-      }
-
-      carousel.style.transform = `translateX(${x}px)`;
-      animId = requestAnimationFrame(animate);
-    };
-
-    // Start animation
-    animId = requestAnimationFrame(animate);
-
-    const pause = () => {
-      if (animId) {
-        cancelAnimationFrame(animId);
-        animId = null;
-        lastTimestamp = null;
-      }
-    };
-
-    const resume = () => {
-      if (!animId) {
-        lastTimestamp = null;
-        animId = requestAnimationFrame(animate);
-      }
-    };
-
-    // Event listeners for pause/resume
-    track.addEventListener("mouseenter", pause);
-    track.addEventListener("mouseleave", resume);
-    track.addEventListener("focusin", pause);
-    track.addEventListener("focusout", resume);
-
-    // Handle window resize
-    let resizeTimer = null;
-    const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        // Pause animation during resize
-        if (animId) {
-          cancelAnimationFrame(animId);
-          animId = null;
-        }
-
-        // Clear cloned nodes
-        while (carousel.children.length > originalCount) {
-          carousel.removeChild(carousel.lastChild);
-        }
-
-        // Re-clone nodes
-        originalNodes.forEach((node) => {
-          carousel.appendChild(node.cloneNode(true));
-        });
-
-        // Reset position more carefully
-        const resetThreshold = getResetThreshold();
-        if (resetThreshold > 0) {
-          // Normalize x position within bounds
-          x = ((x % resetThreshold) + resetThreshold) % resetThreshold;
-          // Ensure x is negative (moving left)
-          if (x > 0) x -= resetThreshold;
-        }
-
-        carousel.style.transform = `translateX(${x}px)`;
-
-        // Resume animation
-        lastTimestamp = null;
-        animId = requestAnimationFrame(animate);
-      }, 150);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup
-    return () => {
-      if (animId) cancelAnimationFrame(animId);
-      track.removeEventListener("mouseenter", pause);
-      track.removeEventListener("mouseleave", resume);
-      track.removeEventListener("focusin", pause);
-      track.removeEventListener("focusout", resume);
-      window.removeEventListener("resize", handleResize);
-      clearTimeout(resizeTimer);
-      carousel.style.willChange = "auto";
-    };
+    const onResize = () => setVisible(window.innerWidth < 768 ? 1 : 3);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  // Build alternating track: review, image, review, image, ...
+  const items = useMemo(() => {
+    const arr = [];
+    testimonialsData.forEach((t, i) => {
+      arr.push({ kind: "review", data: t, key: `r-${i}` });
+      arr.push({ kind: "image", src: FOOD_IMAGES[i % FOOD_IMAGES.length], key: `i-${i}` });
+    });
+    return arr;
+  }, []);
+
+  const maxIndex = Math.max(0, items.length - visible);
+  const safeIndex = Math.min(index, maxIndex);
+
+  const prev = () => setIndex((i) => Math.max(0, i - 1));
+  const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
+
+  const itemWidth = `${100 / visible}%`;
+  const translate = `${-(safeIndex * (100 / visible))}%`;
+
   return (
-    <section className="py-16 bg-white relative overflow-hidden">
-      <h2 className="text-5xl text-[#46171A] font-bold text-center mb-8 relative z-10 font-wa-flat">
-        Client Testimonials
-      </h2>
+    <section className="bg-white py-12 md:py-20 px-4 md:px-8 font-wa-flat">
+      <div className="max-w-6xl mx-auto bg-[#46171A] rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-14 relative overflow-hidden">
+        {/* Top Row */}
+        <div className="flex items-start justify-between gap-4 mb-8 md:mb-10">
+          <div>
+            <span className="inline-block text-[#EED9CC] text-[10px] md:text-xs tracking-[0.25em] uppercase border border-[#EED9CC]/40 rounded-full px-3 py-1">
+              From Our Guests
+            </span>
+            <h2 className="text-white text-3xl md:text-5xl lg:text-6xl font-semibold mt-4 md:mt-6 leading-tight">
+              What People Love About Us
+            </h2>
+          </div>
 
-      <div
-        ref={trackRef}
-        className="max-w-[100%] md:max-w-[80%] mx-auto relative px-4 overflow-hidden"
-        tabIndex={0}
-      >
-        {/* Faded overlays on both sides */}
-        <div className="pointer-events-none absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-20"></div>
-        <div className="pointer-events-none absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-20"></div>
+          <div className="flex gap-2 md:gap-3 shrink-0 mt-1">
+            <button
+              onClick={prev}
+              disabled={safeIndex === 0}
+              aria-label="Previous"
+              className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-[#5a2225] hover:bg-[#EED9CC] hover:text-[#46171A] text-white flex items-center justify-center transition-all duration-300 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#5a2225] disabled:hover:text-white"
+            >
+              <FiArrowLeft className="text-base md:text-lg" />
+            </button>
+            <button
+              onClick={next}
+              disabled={safeIndex >= maxIndex}
+              aria-label="Next"
+              className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-[#5a2225] hover:bg-[#EED9CC] hover:text-[#46171A] text-white flex items-center justify-center transition-all duration-300 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#5a2225] disabled:hover:text-white"
+            >
+              <FiArrowRight className="text-base md:text-lg" />
+            </button>
+          </div>
+        </div>
 
-        <div ref={carouselRef} className="flex gap-6 w-max">
-          {testimonialsData.map((testimonial, index) => (
-            <TestimonialCard key={index} {...testimonial} />
-          ))}
+        {/* Sliding Track */}
+        <div className="overflow-hidden -mx-2 md:-mx-3">
+          <div
+            className="flex"
+            style={{
+              transform: `translateX(${translate})`,
+              transition: "transform 700ms cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          >
+            {items.map((item) => (
+              <div
+                key={item.key}
+                style={{ width: itemWidth }}
+                className="flex-shrink-0 px-2 md:px-3"
+              >
+                {item.kind === "review" ? (
+                  <ReviewCard data={item.data} />
+                ) : (
+                  <ImageCard src={item.src} />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const TestimonialCard = ({ rating, text, name, title }) => (
-  <div
-    className="w-[300px] md:w-[450px] flex-shrink-0 mt-4 mb-4 
-    bg-[#d6bfa4] text-black rounded-2xl p-6 md:p-8 
-    shadow-lg border border-[rgba(226,205,179,0.15)] 
-    transition-all duration-300 
-    hover:scale-[1.02] hover:bg-[#46171A] hover:text-white cursor-pointer"
-  >
-    <div className="flex justify-start gap-1 mb-5 text-xl">
-      {"★".repeat(rating)}
+const ReviewCard = ({ data }) => (
+  <div className="text-[#EED9CC] flex flex-col justify-between min-h-[260px] md:min-h-[360px] h-full py-2">
+    <div>
+      <div className="flex items-center gap-2 mb-4 md:mb-6">
+        <FaStar className="text-[#F15A24] text-base md:text-lg" />
+        <span className="text-white font-medium text-sm md:text-base">
+          {data.rating}
+        </span>
+      </div>
+      <p className="text-white/95 text-base md:text-lg leading-relaxed">
+        &ldquo;{data.text}&rdquo;
+      </p>
     </div>
-    <p className="text-sm md:text-base italic leading-relaxed mb-6 relative">
-      {text}
-    </p>
-    <div className="pt-5 border-t border-[rgba(226,205,179,0.2)]">
-      <h3 className="text-base md:text-lg font-semibold mb-2">{name}</h3>
-      <p className="text-xs md:text-sm">{title}</p>
+    <div className="mt-6 md:mt-8 pt-4 border-t border-[#EED9CC]/15">
+      <h4 className="text-white text-lg md:text-xl font-semibold">
+        {data.name},
+      </h4>
+      <p className="text-[#EED9CC]/70 text-xs md:text-sm tracking-wide mt-1">
+        {data.title}
+      </p>
     </div>
   </div>
 );
 
-const testimonialsData = [
-  {
-    rating: 5,
-    text: "Ulu Amir Group transformed our hospitality experience in Bali. Their team's expertise in blending Arabic and Balinese culture created something truly unique.",
-    name: "Ahmed Khalifa",
-    title: "CEO, TechSolutions UAE",
-  },
-  {
-    rating: 5,
-    text: "The strategic approach to our restaurant launch helped us establish quickly in the competitive Uluwatu market. Highly recommend their services.",
-    name: "Sarah Al-Mansoori",
-    title: "CFO, Gulf Enterprises",
-  },
-  {
-    rating: 5,
-    text: "We've been working with Ulu Amir for 2 years now. Flawless execution every time with clear communication throughout the process.",
-    name: "Raj Patel",
-    title: "Director, TradeLinks FZE",
-  },
-  {
-    rating: 5,
-    text: "Their understanding of luxury real estate in Bali helped us avoid potential investment pitfalls. Exceptional market knowledge.",
-    name: "Fatima Al-Qassimi",
-    title: "Founder, Pearl Consulting",
-  },
-  {
-    rating: 5,
-    text: "Outstanding service quality and attention to detail. Their team made complex business matters simple and understandable.",
-    name: "Mohammad Al-Rashid",
-    title: "Managing Partner, Emirates Trade Hub",
-  },
-];
+const ImageCard = ({ src }) => (
+  <div className="relative rounded-2xl overflow-hidden min-h-[260px] md:min-h-[360px] h-full group">
+    <img
+      src={src}
+      alt="Onnar dish"
+      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#46171A]/40 via-transparent to-transparent" />
+  </div>
+);
 
 export default Testimonial;
