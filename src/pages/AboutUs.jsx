@@ -27,7 +27,7 @@ const team = [
     name: "Amir Hassan Al Ali",
     role: "Founder & CEO",
     img: "/founder.png",
-    bio: "Visionary entrepreneur with roots in the Gulf and a deep love for Bali, Amir founded Ulu Amir Group to bridge cultures through exceptional hospitality.",
+    bio: "Visionary entrepreneur with roots in the Gulf and a deep love for Bali, Amir founded Amir al Ali Group to bridge cultures through exceptional hospitality.",
   },
 ];
 
@@ -152,7 +152,7 @@ const AboutUs = () => {
               {/* Text */}
               <div className="text-center md:text-left max-w-xl">
                 <blockquote className="inter text-base md:text-lg text-[#46171A] leading-relaxed mb-6 italic">
-                  "At Ulu Amir Group, we believe every venture is an extension
+                  "At Amir al Ali Group, we believe every venture is an extension
                   of our identity and must reflect excellence and cultural
                   vision. From Uluwatu we begin, to the world we aspire."
                 </blockquote>

@@ -52,6 +52,15 @@ html {
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .founder-card {
   z-index: 4;
   background: transparent;

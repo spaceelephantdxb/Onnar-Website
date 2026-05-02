@@ -20,7 +20,6 @@ const MainPage = () => {
       {/* <MenuSection /> */}
       {/* <DeliveryInfo /> */}
       {/* <Testimonial /> */}
-      <Quote />
       <Footer />
       <SocialIcons />
     </div>

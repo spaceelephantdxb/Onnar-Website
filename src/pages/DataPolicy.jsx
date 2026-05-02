@@ -38,7 +38,7 @@ const PrivacyPolicy = () => {
         <Section title="1. Introduction">
           <p>
             On Nar Restaurant ("On Nar", "we", "us", or "our"), operated by
-            Ulu Amir Group, is committed to protecting your personal
+            Amir al Ali Group, is committed to protecting your personal
             information. This Privacy Policy explains how we collect, use,
             store, and share your data when you visit our website or use our
             services.
@@ -150,7 +150,7 @@ const PrivacyPolicy = () => {
               Regulatory authorities or law enforcement when required by law.
             </li>
             <li>
-              Business partners within Ulu Amir Group for coordinated
+              Business partners within Amir al Ali Group for coordinated
               hospitality services, where applicable.
             </li>
           </ul>
@@ -190,10 +190,10 @@ const PrivacyPolicy = () => {
           <p>
             To exercise any of these rights, please contact us at{" "}
             <a
-              href="mailto:office@uluamirgroup.com"
+              href="mailto:office@amiralaligroup.com"
               className="text-[#46171A] font-semibold underline underline-offset-2"
             >
-              office@uluamirgroup.com
+              office@amiralaligroup.com
             </a>
             .
           </p>
@@ -235,13 +235,13 @@ const PrivacyPolicy = () => {
             <li>
               Email:{" "}
               <a
-                href="mailto:office@uluamirgroup.com"
+                href="mailto:office@amiralaligroup.com"
                 className="text-[#46171A] font-semibold underline underline-offset-2"
               >
-                office@uluamirgroup.com
+                office@amiralaligroup.com
               </a>
             </li>
-            <li>Phone: +62 811 3960 6303 / +971 561 313137</li>
+            <li>Phone: +62 811 30023333  / +971 561 313137</li>
             <li>Address: Uluwatu, Bali – Indonesia</li>
           </ul>
         </Section>

@@ -72,7 +72,7 @@ const ContactUs = () => {
               <div>
                 <p className="inter font-semibold text-[#46171A] text-sm uppercase tracking-wider mb-1">Phone</p>
                 <a href="tel:+628113960630" className="inter text-[#46171A]/80 text-sm block hover:text-[#F15A24] transition-colors">
-                  +62 811 3960 6303
+                  +62 811 30023333
                 </a>
                 <a href="tel:+971561313137" className="inter text-[#46171A]/80 text-sm block hover:text-[#F15A24] transition-colors">
                   +971 561 313137
@@ -86,8 +86,8 @@ const ContactUs = () => {
               </div>
               <div>
                 <p className="inter font-semibold text-[#46171A] text-sm uppercase tracking-wider mb-1">Email</p>
-                <a href="mailto:office@uluamirgroup.com" className="inter text-[#46171A]/80 text-sm hover:text-[#F15A24] transition-colors">
-                  office@uluamirgroup.com
+                <a href="mailto:office@amiralaligroup.com" className="inter text-[#46171A]/80 text-sm hover:text-[#F15A24] transition-colors">
+                  office@amiralaligroup.com
                 </a>
               </div>
             </div>

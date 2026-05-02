@@ -48,12 +48,12 @@ const TermsAndConditions = () => {
         <Section title="2. About On Nar">
           <p>
             On Nar is an Arabic restaurant located in Uluwatu, Bali, Indonesia,
-            operated under Ulu Amir Group. We provide dine-in, catering, and
+            operated under Amir al Ali Group. We provide dine-in, catering, and
             event hosting services. Our contact details are:
           </p>
           <ul className="list-disc list-inside space-y-1 pl-2">
-            <li>Email: office@uluamirgroup.com</li>
-            <li>Phone: +62 811 3960 6303 / +971 561 313137</li>
+            <li>Email: office@amiralaligroup.com</li>
+            <li>Phone: +62 811 30023333  / +971 561 313137</li>
             <li>Address: Uluwatu, Bali – Indonesia</li>
           </ul>
         </Section>
@@ -99,7 +99,7 @@ const TermsAndConditions = () => {
         <Section title="6. Intellectual Property">
           <p>
             All content on this Site — including text, images, logos, and
-            design — is the property of On Nar / Ulu Amir Group and is
+            design — is the property of On Nar / Amir al Ali Group and is
             protected by applicable intellectual property laws. You may not
             reproduce, distribute, or create derivative works without our prior
             written consent.
@@ -135,7 +135,7 @@ const TermsAndConditions = () => {
 
         <Section title="9. Limitation of Liability">
           <p>
-            To the fullest extent permitted by law, On Nar and Ulu Amir Group
+            To the fullest extent permitted by law, On Nar and Amir al Ali Group
             shall not be liable for any indirect, incidental, or consequential
             damages arising from your use of our Site or services.
           </p>
@@ -166,10 +166,10 @@ const TermsAndConditions = () => {
           <p>
             If you have any questions about these Terms, please contact us at{" "}
             <a
-              href="mailto:office@uluamirgroup.com"
+              href="mailto:office@amiralaligroup.com"
               className="text-[#46171A] font-semibold underline underline-offset-2"
             >
-              office@uluamirgroup.com
+              office@amiralaligroup.com
             </a>
             .
           </p>

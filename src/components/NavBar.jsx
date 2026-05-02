@@ -47,6 +47,24 @@ const Navbar = () => {
         />
       </div>
 
+      {/* Mobile-only marquee */}
+      <div className="md:hidden absolute left-14 right-12 overflow-hidden pointer-events-none">
+        <div className="flex w-max animate-[marquee_15s_linear_infinite] text-white text-xs font-medium will-change-transform">
+          <div className="flex shrink-0">
+            <span className="px-6 shrink-0">A Taste of the Levant in Bali.</span>
+            <span className="px-6 shrink-0">A Taste of the Levant in Bali.</span>
+            <span className="px-6 shrink-0">A Taste of the Levant in Bali.</span>
+            <span className="px-6 shrink-0">A Taste of the Levant in Bali.</span>
+          </div>
+          <div className="flex shrink-0" aria-hidden="true">
+            <span className="px-6 shrink-0">A Taste of the Levant in Bali.</span>
+            <span className="px-6 shrink-0">A Taste of the Levant in Bali.</span>
+            <span className="px-6 shrink-0">A Taste of the Levant in Bali.</span>
+            <span className="px-6 shrink-0">A Taste of the Levant in Bali.</span>
+          </div>
+        </div>
+      </div>
+
       {/* Mobile menu toggle button */}
       <button
         className="md:hidden text-white p-2 absolute right-3 top-1/2 -translate-y-1/2"
